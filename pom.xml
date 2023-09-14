@@ -12,6 +12,8 @@
     <modules>
         <module>asm</module>
         <module>instrument</module>
+        <module>forkjoin</module>
+        <module>kafka</module>
     </modules>
 
     <properties>
