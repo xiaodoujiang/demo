@@ -38,17 +38,18 @@ public class KafkaProducerExample{
         Producer<String, String> producer = new KafkaProducer<String, String>(props);
 
 
-            // 创建消息；key：作用是决定了往哪个分区上发，value：具体要发送的消息内容
         String uuid = UUID.randomUUID().toString();
-        ProducerRecord<String, String> message = new ProducerRecord<>(
+        ProducerRecord<String, String> message1 = new ProducerRecord<>(
                 TOPIC_NAME, 0, uuid, uuid+"helloKafka");
 
-        // 同步发送消息
-        RecordMetadata metadata = producer.send(message).get();
+        RecordMetadata metadata = producer.send(message1).get();
+
+
+        producer.close();
 
         log("send sync：topic:%s, partition:%d, key:%d, value:%s",
                 metadata.topic(), metadata.partition(), metadata.offset(),
-                message.key(), message.value());
+                message1.key(), message1.value());
 
     }
 }
