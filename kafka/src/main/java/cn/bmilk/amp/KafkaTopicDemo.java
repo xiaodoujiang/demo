@@ -19,9 +19,9 @@ public class KafkaTopicDemo {
         AdminClient adminClient = AdminClient.create(props);
 
         // 指定要创建的Topic的名称、分区和副本数
-        String topicName = "test.topic";
+        String topicName = "TEST.TOPIC";
         int numPartitions = 3;
-        short replicationFactor = 1;
+        short replicationFactor = 2;
 
         // 创建新Topic
         NewTopic newTopic = new NewTopic(topicName, numPartitions, replicationFactor);
